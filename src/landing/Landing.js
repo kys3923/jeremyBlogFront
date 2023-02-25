@@ -1,11 +1,12 @@
 import PostButton from "./PostButton";
 import PostLists from './PostLists';
+import SearchedPosts from "../components/SearchedPosts";
 
-const Landing = ({allPosts}) => {
+const Landing = ({allPosts, searchedText, searchedPosts}) => {
   return (
     <div>
-      <p>Landing Component</p>
-      <PostLists allPosts={allPosts} />
+      {searchedText === '' && <PostLists allPosts={allPosts} /> }
+      {searchedText && <SearchedPosts searchedPosts={searchedPosts} />}
     </div>
   );
 }

@@ -19,6 +19,8 @@ import PostLanding from './post/PostLanding';
 const App = (props) => {
 
   const [ allPosts, setAllPosts ] = useState([]);
+  const [ searchedText, setSearchedText ] = useState('');
+  const [ searchedPosts, setSearchedPosts] = useState([]);
 
   useEffect(() => {
     let isMounted = true;
@@ -35,15 +37,16 @@ const App = (props) => {
   },[])
   return (
     <>
+    {console.log(allPosts)}
       <Router>
-        <Header />
+        <Header searchedText={searchedText} setSearchedText={setSearchedText} allPosts={allPosts} setSearchedPosts={setSearchedPosts} />
         <Routes>
-          <Route path='/' element={<Landing allPosts={allPosts} />} />
+          <Route path='/' element={<Landing allPosts={allPosts} searchedText={searchedText} searchedPosts={searchedPosts} setSearchedPosts={setSearchedPosts} />} />
           {/* Account */}
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           {/* Post */}
-          <Route path='/post' element={<PostLanding />} />
+          <Route path='/post' element={<PostLanding searchedText={searchedText} searchedPosts={searchedPosts} />} />
 
           <Route path='/memo' element={<Memo />} />
 
