@@ -1,18 +1,17 @@
 import { dateFormatter } from '../components/Formatters';
+import { ListClickHandler } from './Handlers';
+import { useNavigate } from 'react-router-dom';
 
 const PostLists = ({allPosts}) => {
 
-  const listClickHandler = (e, id) => {
-    e.preventDefault();
-    console.log(id)
-  }
+  const navigate = useNavigate();
 
   return (
     <section>
       {!!allPosts && allPosts.map((post) => {
         return <div
           key={post._id}
-          onClick={(e) => listClickHandler(e, post._id)}
+          onClick={(e) => ListClickHandler(e, post._id, allPosts, navigate)}
           className='mb-2 p-4 bg-indigo-400 text-white hover:bg-indigo-600'
         >
           <h3 className='font-bold text-lg'>{post.title}</h3>
