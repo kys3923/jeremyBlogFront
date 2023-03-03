@@ -5,6 +5,8 @@ export const submitHandler = (e, form, tag) => {
   let revisedForm = {
     title: form.title,
     article: form.article,
+    category: form.category,
+    subCategory: form.subCategory,
     tag: tag,
   }
   const requestToApi = async (data) => {

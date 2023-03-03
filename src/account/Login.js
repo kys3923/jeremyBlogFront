@@ -33,16 +33,15 @@ const Login = (props) => {
     if(!!request.data.success) {
       sessionStorage.setItem('authToken', request.data.token)
       sessionStorage.setItem('userId', request.data.user._id)
-      sessionStorage.setItem('role', request.data.role)
+      sessionStorage.setItem('role', request.data.user.role)
       // navigate('/dashboard')
-      navigate('/')
+      navigate('/dashboard')
     }
   }
 
   useEffect(() => {
-
     if (!!sessionStorage.authToken) {
-      navigate('/')
+      navigate('/dashboard')
     }
   },[]) // eslint-disable-line react-hooks/exhaustive-deps
 

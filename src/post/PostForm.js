@@ -3,23 +3,32 @@ import { MdRemoveCircleOutline } from "react-icons/md";
 
 const PostForm = ({submitForm, setSubmitForm, tags, setTags, addedTags, setAddedTags}) => {
   
-  const { title, article } = submitForm;
+  const { title, article, category, subCategory } = submitForm;
 
   const { tag } = tags;
-
-  console.log(addedTags)
 
   return (
     <form 
     onSubmit={(e) => submitHandler(e, submitForm, addedTags)}
     className='flex flex-col items-start w-full bg-blue-400 p-4 h-screen'
     >
-      <h1></h1>
       <label htmlFor='title'>Title</label>
       <input type='text' name='title'
         className='border border-slate-500 rounded-sm w-full px-2 py-1'
         onChange={(e) => changeHandler(e, setSubmitForm)}
         value={title}
+      />
+      <label htmlFor='title'>Category</label>
+      <input type='text' name='category'
+        className='border border-slate-500 rounded-sm w-full px-2 py-1'
+        onChange={(e) => changeHandler(e, setSubmitForm)}
+        value={category}
+      />
+      <label htmlFor='title'>Sub Category</label>
+      <input type='text' name='subCategory'
+        className='border border-slate-500 rounded-sm w-full px-2 py-1'
+        onChange={(e) => changeHandler(e, setSubmitForm)}
+        value={subCategory}
       />
       <label htmlFor='tags' className='flex items-center truncate'>
         Tags

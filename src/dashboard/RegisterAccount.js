@@ -10,13 +10,15 @@ const RegisterAccount = (props) => {
     role: '',
   });
 
+  const [ message, setMessage ] = useState('');
+
   let { email, password, username, role } = formData;
 
   return (
     <section className="bg-indigo-100">
       <p>RegisterAccount</p>
 
-      <form className="flex flex-col" onSubmit={(e) => RegisterAccountSubmit(e, formData)}>
+      <form className="flex flex-col" onSubmit={(e) => RegisterAccountSubmit(e, formData, setMessage)}>
         <label htmlFor="username">
           Username
         </label>
@@ -58,6 +60,7 @@ const RegisterAccount = (props) => {
         </select>
         {role}
         <button type='submit'>Register</button>
+        {message !== '' && <p>{message}</p>}
       </form>
     </section>
   );

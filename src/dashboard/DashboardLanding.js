@@ -1,10 +1,13 @@
-import Settings from "./Settings";
+import AllPosts from "./AllPosts";
+import SearchedPosts from "./SearchedPosts";
 
-const DashboardLanding = (props) => {
+const DashboardLanding = ({allPosts}) => {
   return (
-    <div>
-      <Settings />
-    </div>
+    <section className="text-white">
+      <p >Landing</p>
+      {/* show all post */}
+      <AllPosts allPosts={allPosts} />
+    </section>
   );
 }
 export default DashboardLanding;

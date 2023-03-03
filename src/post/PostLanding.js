@@ -9,6 +9,8 @@ const PostLanding = ({searchedText, searchedPosts}) => {
   const [ submitForm, setSubmitForm ] = useState({
     title: '',
     article: '',
+    category: '',
+    subCategory: '',
   });
   const [ tags, setTags ] = useState({
     tag: '',
